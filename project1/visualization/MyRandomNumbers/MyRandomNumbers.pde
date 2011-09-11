@@ -18,8 +18,13 @@ void setup() {
 
     int[] numbers = getNumbers();
     
-    barGraph(numbers,400.0);
-  
+    barGraph(numbers,100.0);
+    
+    for(int i = 1; i < 7; ++i)
+    {
+      int[] randoms = getRandomNumbers(255);
+      barGraph(randoms, (float)100 + (i * 130));
+    }  
 
 }
 
@@ -43,6 +48,8 @@ void barGraph( int[] nums, float y ) {
   
   for(int i = 0; i < counts.length; ++i)
   {
+    colorMode(HSB);
+    fill(counts[i]*30, 255, 255);
    rect(i*8, y, 8, -counts[i] * 10);
  }
 }
