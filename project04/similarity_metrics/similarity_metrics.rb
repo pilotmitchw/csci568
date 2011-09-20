@@ -1,3 +1,5 @@
+#Project 4 by Mitchell Wright
+
 class DataObject
 	attr_accessor :attributes
 	def initialize (attributes)
@@ -107,7 +109,15 @@ class PearsonCorrelationCoefficient
 		stdev_x = Math.sqrt(stdev_x/(xDimensions - 1))
 		stdev_y = Math.sqrt(stdev_y/(yDimensions - 1))
 		
+		covariance = 0
 		
+		xDimensions.times do |i|
+			covariance += (x.attributes[i] - x_mean)*(y.attributes[i] - y_mean)
+		end
+		
+		covariance = (covariance/(xDimensions-1))
+		
+		return covariance.to_f / (stdev_x * stdev_y)
 	end
 end
 
@@ -153,8 +163,11 @@ e = EuclideanDistance.new
 smc = SimpleMatchingCoefficient.new
 jaccard = JaccardSimilarity.new
 cosine = CosineSimilarity.new
+pearson = PearsonCorrelationCoefficient.new
 
-puts "Euclidian: #{e.distance(one, two)}"
-puts "SMC: #{smc.distance(same_one, same_two)}"
-puts "Jaccard: #{jaccard.distance(same_one, same_two)}"
-puts "Cosine similarity: #{cosine.distance(one, two)}"
+puts "Tests:"
+puts "Euclidian: #{e.distance(one, two)} should be 75.02666"
+puts "SMC: #{smc.distance(same_one, same_two)} should be 1"
+puts "Jaccard: #{jaccard.distance(same_one, same_two)} should be 0.5"
+puts "Cosine similarity: #{cosine.distance(one, two)} should be 0.42516"
+puts "Pearson: #{pearson.distance(one, two)} should be -0.9806"
