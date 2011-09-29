@@ -5,6 +5,13 @@ class DataObject
 	end
 end
 
+class Centroid
+	attr_accessor :location
+	def initialize(location)
+		@location = location
+	end
+end
+
 def read_file(file_name)
 	data_objects = []
 	file = File.new(file_name, "r")
@@ -17,9 +24,10 @@ def read_file(file_name)
 end
 
 def print_all(data_objects)
-	data_objects.foreach |i| do
-		puts "Object: sepal le
+	data_objects.each do |i|
+		puts "Object: sepal length = #{i.attributes[0]}, sepal width = #{i.attributes[1]}, petal length = #{i.attributes[2]}, petal width = #{i.attributes[3]}, class = #{i.attributes[4]}"
 	end
 end
 
-
+data_objects = read_file("iris.csv")
+print_all(data_objects);
