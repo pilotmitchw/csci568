@@ -49,7 +49,7 @@ class Centroid
 	
 	def print
 		puts "Centroid location: #{@attributes[0]}, #{@attributes[1]},#{@attributes[2]},#{@attributes[3]}"
-		puts "Centroid data points:"
+		puts "Centroid data points, #{@data_objects.length} total:"
 		data_objects.each do |i|
 			i.print
 		end
@@ -105,7 +105,6 @@ class KMeans
 			centroids << Centroid.new(location)
 		end
 		
-		centroids.each { |i| i.print }
 		centroids_moved = true
 		
 		while centroids_moved 
@@ -115,6 +114,7 @@ class KMeans
 			
 			while not good_centroids
 				good_centroids = true
+				
 				#Calculate proximity for each point to each centroid and assign each point to its closest centroid.
 				data_objects.each do |data_object|
 					#puts "Processing data object"
@@ -137,7 +137,6 @@ class KMeans
 				#look for centroids with no objects
 				centroids.each do |centroid|
 					if (centroid.data_objects.nil? or centroid.data_objects.length == 0)
-						puts "Empty centroid after intitial allocation!"
 						good_centroids = false
 						
 						location = []
@@ -180,7 +179,7 @@ class KMeans
 					end
 				end
 				
-				puts "Setting centroid to location: #{average_attributes[0]}, #{average_attributes[1]}, #{average_attributes[2]}, #{average_attributes[3]}"
+				#puts "Setting centroid to location: #{average_attributes[0]}, #{average_attributes[1]}, #{average_attributes[2]}, #{average_attributes[3]}"
 				centroid.attributes = average_attributes
 				if(centroids_moved)
 					centroid.clear_objects
@@ -191,11 +190,7 @@ class KMeans
 		end
 		
 		puts "Done with K-means algorithm."
-		puts "----------------------------"
-		centroids.each_with_index do |centroid, index|
-			puts "Centroid #{index+1}" 
-			centroid.print
-		end
+		return centroids
 		
 		
 	end
@@ -204,6 +199,56 @@ end
 data_objects = read_file("iris.csv")
 k_means = KMeans.new
 
-k_means.cluster(3, data_objects)
+
+
+
+distance_metric = EuclideanDistance.new
+
+#Tests
+puts
+puts
+puts "k = 3----------------------------"
+centroids = k_means.cluster(3, data_objects)
+sse = 0
+centroids.each_with_index do |centroid, index|
+	puts "Centroid #{index+1}" 
+	
+	
+	
+	centroid.data_objects.each do |object|
+		sse += distance_metric.distance(object, centroid)**2
+	end
+	puts "Number of members: #{centroid.data_objects.length}"
+end
+
+puts "WEKA divides the Iris dataset into 3 clusters with 61, 50, and 39 members in each cluster."
+puts "SSE = #{sse} vs. WEKA within cluster SSE = 6.998114004826762"
+
+puts
+puts
+puts
+#Tests
+puts "k = 5----------------------------"
+centroids = k_means.cluster(5, data_objects)
+sse = 0
+centroids.each_with_index do |centroid, index|
+	puts "Centroid #{index+1}" 
+	
+	
+	
+	centroid.data_objects.each do |object|
+		sse += distance_metric.distance(object, centroid)**2
+	end
+	puts "Number of members: #{centroid.data_objects.length}"
+end
+
+puts "WEKA divides the Iris dataset into 5 clusters with 27, 26, 27, 50 and 20 members in each cluster."
+puts "SSE = #{sse} vs. WEKA within cluster SSE = 5.130784647061167"
+
+puts
+puts
+puts
+
+
 
 
