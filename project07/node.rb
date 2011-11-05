@@ -1,3 +1,5 @@
+require 'axon.rb'
+
 #Node - models the neuron of an ANN
 #A neuron can have many input and many output weights
 class Node
@@ -7,19 +9,21 @@ class Node
 		@outputs = []
 	end
 	
-	def add_input( input_node )
-		if(input_node.class == Node)
-			@inputs << input_node
+	def add_input( input_axon )
+		if(input_node.class == Axon)
+			@inputs << input_axon
 			return true
 		end
 		return false
 	end
 	
-	def add_output( output_node )
-		if(input_node.class == Node)
-			@outputs << output_node
+	def add_output( output_axon )
+		if(input_node.class == Axon)
+			@outputs << output_axon
 		end
 	end
+	
+	
 
 
 end
