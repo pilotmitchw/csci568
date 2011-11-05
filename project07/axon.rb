@@ -5,6 +5,9 @@ class Axon
 			@from = from
 			@to = to
 			@weight = weight
+			
+			@from.connect_output( self )
+			@to.connect_input( self )
 		end
 	end
 	
