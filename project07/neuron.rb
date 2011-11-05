@@ -7,7 +7,7 @@ class Neuron
 	def initialize( bias = 0.0 )
 		@inputs = []
 		@outputs = []
-		@input_value = 0
+		@output_value = 0.0;
 		@bias = 0.0
 	end
 	
@@ -32,6 +32,41 @@ class Neuron
 		@bias = bias
 	end
 	
+	def get_value
+		return @output_value
+	end
+	
+	def set_value (output_value)
+		@output_value = output_value
+	end
+	
+	
+	
+	#To evaluate, a Neuron will sum up the values of all its inputs, subtracts its
+	#bias factor, and decides what to output.
+	
+	#For now, a Neuron will output 1 if the result of the above calculation is positive
+	#and -1 if the result is negative.
+	def evaluate
+	
+		total = 0.0
+		@inputs.each do |input|
+			total = total + input.get_value
+		end
+		
+		total = total - @bias
+		
+		if(total > 0)
+			output = 1
+		elsif (total < 0)
+			output = -1
+		else
+			output = 0
+		end
+	
+		@output_value = output
+	
+	end
 
 
 end

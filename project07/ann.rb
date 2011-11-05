@@ -29,4 +29,19 @@ class ANN
 		@p_to_output_one = Axon.new(@perceptron, @output_one, 1.0)
 	end
 	
+	
+	def load_inputs(input_one, input_two, input_three )
+		@input_one.set_value (input_one)
+		@input_two.set_value (input_two)
+		@input_three.set_value (input_three)
+	end
+	
+	def evaluate
+		@perceptron.evaluate
+		puts "Output of perceptron node was: #{@perceptron.get_value}"
+		
+		@output_one.evaluate
+		
+		return "Output was: #{@output_one.get_value}"
+	end
 end

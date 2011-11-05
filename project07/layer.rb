@@ -11,6 +11,12 @@ class Layer
 		end
 	end
 	
+	def evaluate
+		@neurons.each do |neuron|
+			neuron.evaluate
+		end
+	end
+	
 	def clear
 		@neurons = []
 	end

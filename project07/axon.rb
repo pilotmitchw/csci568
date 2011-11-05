@@ -19,11 +19,8 @@ class Axon
 		return @weight
 	end
 	
-	#Traversing an axon means that we go along the connection,
-	#applying the weight and supplying the signal from the
-	#'from' neuron to the 'to' neuron.
-	def traverse
-		
+	def get_value
+		return @from.get_value.to_f*@weight
 	end
 	
 end
