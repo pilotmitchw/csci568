@@ -1,7 +1,7 @@
-#Axons - model of the connections between nodes
+#Axons - model of the connections between Neurons
 class Axon
 	def initialize( from, to, weight=1.0 )
-		if(from.class == Node and to.class == Node)
+		if(from.class == Neuron and to.class == Neuron)
 			@from = from
 			@to = to
 			@weight = weight
