@@ -38,7 +38,7 @@ class ANN
 	
 	def evaluate
 		@perceptron.evaluate
-		puts "Output of perceptron node was: #{@perceptron.get_value}"
+		#puts "Output of perceptron node was: #{@perceptron.get_value}"
 		
 		@output_one.evaluate
 		

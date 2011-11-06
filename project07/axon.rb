@@ -20,7 +20,10 @@ class Axon
 	end
 	
 	def get_value
-		return @from.get_value.to_f*@weight
+	
+		value = @from.get_value.to_f*@weight		
+		#puts "Axon value was: #{value}"
+		return value
 	end
 	
 end

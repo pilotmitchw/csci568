@@ -8,7 +8,7 @@ class Neuron
 		@inputs = []
 		@outputs = []
 		@output_value = 0.0;
-		@bias = 0.0
+		@bias = bias
 	end
 	
 	def connect_input( input_axon )
@@ -56,13 +56,16 @@ class Neuron
 		
 		total = total - @bias
 		
-		if(total > 0)
-			output = 1
-		elsif (total < 0)
-			output = -1
+		#puts "Node total was #{total}"
+		
+		if(total > 0.0)
+			output = 1.0
+		elsif (total < 0.0)
+			output = -1.0
 		else
-			output = 0
+			output = 0.0
 		end
+	
 	
 		@output_value = output
 	
