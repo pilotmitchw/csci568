@@ -42,8 +42,41 @@ class Perceptron
 		
 		puts "Output was #{@output_one.get_value}"
 	end
+	
+	def train(training_example, learning_rate, max_iterations)
+		iterations = 0
+		
+		#randomize weights
+		
+		while(iterations < max_iterations)
+			iterations += 1
+			
+			@perceptron.evaluate
+			@output_one.evaluate
+			
+			inputs = @perceptron.get_inputs
+			
+			inputs.each do |input|
+				prediction_error = training_example - @perceptron.get_value
+				new_weight = input.get_weight + learning_rate*(prediction_error)*training_example
+				puts "#{new_weight} = #{input.get_weight} + #{learning_rate}(#{prediction_error})#{training_example}"
+				if(new_weight == @perceptron.get_value)
+					break
+				end
+				
+				input.set_weight(new_weight)
+			end
+		end
+		
+	end
 end
 
 perceptron = Perceptron.new
 perceptron.load_inputs(0.0, 1.0, 0.0)
+perceptron.train(1.0, 0.1, 100)
+perceptron.evaluate
+
+puts "Training to -1.0"
+perceptron.load_inputs(1.0, 1.0, 1.0)
+perceptron.train(-1.0, 0.1, 100)
 perceptron.evaluate

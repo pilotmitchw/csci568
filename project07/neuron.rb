@@ -40,7 +40,9 @@ class Neuron
 		@output_value = output_value
 	end
 	
-	
+	def get_inputs
+		return @inputs
+	end
 	
 	#To evaluate, a Neuron will sum up the values of all its inputs, subtracts its
 	#bias factor, and decides what to output.
