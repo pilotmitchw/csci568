@@ -30,10 +30,11 @@ class Layer
 		
 		error = 0
 		
+		#First, we need to find out how bad 
 		layer.get_neurons.each do |neuron|
 			#We want to make the weights of each input axon neuron better by bringing the weights closer to the optimum. (Minimal error)
 			
-			
+			#old weight + learning rate * ( something proportional to prediction error )
 		end
 		
 		return error
