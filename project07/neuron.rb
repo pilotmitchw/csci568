@@ -11,6 +11,15 @@ class Neuron
 		@bias = bias
 	end
 	
+	def print
+		puts "Neuron----"
+		@inputs.each do |input|
+			puts input.get_weight
+		end
+		puts "Output value"
+		puts @output_value
+	end
+	
 	def connect_input( input_axon )
 		if(input_axon.class == Axon)
 			@inputs << input_axon

@@ -54,18 +54,25 @@ class Perceptron
 			@perceptron.evaluate
 			@output_one.evaluate
 			
+			#@perceptron.print
+			
 			inputs = @perceptron.get_inputs
 			
+			prediction_error = 0.0
 			inputs.each do |input|
 				prediction_error = training_example - @perceptron.get_value
-				new_weight = input.get_weight + learning_rate*(prediction_error)*training_example
-				puts "#{new_weight} = #{input.get_weight} + #{learning_rate}(#{prediction_error})#{training_example}"
-				if(new_weight == @perceptron.get_value)
-					break
-				end
+				new_weight = input.get_weight + learning_rate*(prediction_error)*input.get_value
+				puts "#{new_weight} = #{input.get_weight} + #{learning_rate}(#{prediction_error})(#{input.get_value})"
+				
+				
 				
 				input.set_weight(new_weight)
+				
 			end
+			
+			if(prediction_error == 0.0)
+					break
+				end
 		end
 		
 	end
@@ -75,8 +82,14 @@ perceptron = Perceptron.new
 perceptron.load_inputs(0.0, 1.0, 0.0)
 perceptron.train(1.0, 0.1, 100)
 perceptron.evaluate
+puts
+puts
+puts
+puts
+puts "NEW"
+puts
 
-puts "Training to -1.0"
+puts "Training to -1.0----------"
 perceptron.load_inputs(1.0, 1.0, 1.0)
 perceptron.train(-1.0, 0.1, 100)
 perceptron.evaluate
