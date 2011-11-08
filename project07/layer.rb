@@ -26,11 +26,16 @@ class Layer
 	end
 	
 	def backpropogate (error)
-		#For each layer, we want to reduce the error for this layer based on the error estimated for the previous layer.
+		#For each layer, we want to reduce the error for this layer based on the error estimated for the previous layer. This will result in some error for this layer as well, which will be returned.
+		
+		error = 0
+		
 		layer.get_neurons.each do |neuron|
 			#We want to make the weights of each input axon neuron better by bringing the weights closer to the optimum. (Minimal error)
 			
 			
-			end
+		end
+		
+		return error
 	end
 end

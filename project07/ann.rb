@@ -93,12 +93,7 @@ class ANN
 	
 	def backpropogate(target)
 		@layers.reverse_each do |layer|
-			#For each layer, go through each node in that layer.
-			layer.get_neurons.each do |neuron|
-				#We want to make the weights of each input axon neuron better by bringing the weights closer to the optimum. (Minimal error)
 			
-			
-			end
 		end
 	end
 	
