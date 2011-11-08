@@ -59,24 +59,27 @@ class Neuron
 	#For now, a Neuron will output 1 if the result of the above calculation is positive
 	#and -1 if the result is negative.
 	def evaluate
-	
+		#puts "Neuron evaluated"
 		total = 0.0
 		@inputs.each do |input|
-			puts "BLAH! #{input.get_value}"
 			total = total + input.get_value
 		end
 		total = total - @bias
 		
 		#puts "Node total was #{total}"
 		
-		if(total > 0.0)
-			output = 1.0
-		elsif (total < 0.0)
-			output = -1.0
-		else
-			output = 0.0
-		end
+		#Sign function implementation
+		#if(total > 0.0)
+			#output = 1.0
+		#elsif (total < 0.0)
+			#output = -1.0
+		#else
+			#output = 0.0
+		#end
 	
+		#Linear function output
+		
+		output = total
 	
 		@output_value = output
 	

@@ -14,7 +14,6 @@ class ANN
 			result = (-1.0)*result
 		end
 		
-		puts result
 		return result
 	end
 	
@@ -63,6 +62,8 @@ class ANN
 		@hidden_two_to_output_two = Axon.new(@hidden_two, @output_two, random_weight)
 		@hidden_two_to_output_three = Axon.new(@hidden_two, @output_three, random_weight)
 		
+	
+		
 	end
 	
 	
@@ -70,10 +71,31 @@ class ANN
 		@input_one.set_value (input_one)
 		@input_two.set_value (input_two)
 		@input_three.set_value (input_three)
+		
+		puts "Inputs loaded:"
+		puts "Input 1: #{@input_one.get_value}"
+		puts "Input 2: #{@input_two.get_value}"
+		puts "Input 3: #{@input_three.get_value}"
+		
+		#@input_one.evaluate
+		#@input_two.evaluate
+		#@input_three.evaluate
+		
+		#puts "Inputs loaded:"
+		#puts "Input 1: #{@input_one.get_value}"
+		#puts "Input 2: #{@input_two.get_value}"
+		#puts "Input 3: #{@input_three.get_value}"
+		
 	end
 	
 	def evaluate
 		feed_forward
+		
+		#To prove input gets all the way to the end of the operation
+		#puts "Input 1: #{@input_one.get_value}"
+		#puts "Input 2: #{@input_two.get_value}"
+		#puts "Input 3: #{@input_three.get_value}"
+	
 		
 		puts "Output 1 was: #{@output_one.get_value}"
 		puts "Output 2 was: #{@output_two.get_value}"
@@ -92,14 +114,15 @@ class ANN
 	end
 	
 	def feed_forward
-		@layers.each do |layer|
-			layer.evaluate
-		end
+		@hidden_one.evaluate
+		@hidden_two.evaluate
+		@output_one.evaluate
+		@output_two.evaluate
+		@output_three.evaluate
 	end
 	
 	def backpropogate_for_output_neuron(neuron, expected, learning_rate)
 		inputs = neuron.get_inputs
-			
 		prediction_error = 0.0
 		inputs.each do |input|
 			prediction_error = expected - neuron.get_value

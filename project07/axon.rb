@@ -11,6 +11,10 @@ class Axon
 		end
 	end
 	
+	def print
+		puts "Axon weight = #{@weight}, value = #{value}"
+	end
+	
 	def set_weight( weight )
 		@weight = weight.to_f
 	end
