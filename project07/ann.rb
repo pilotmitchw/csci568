@@ -130,6 +130,8 @@ class ANN
 			#Change the strength of every incoming link in proportion to the link's current strength and the learning rate
 			new_weight = input.get_weight + learning_rate*(prediction_error)*input.get_value
 			#puts "#{new_weight} = #{input.get_weight} + #{learning_rate}(#{prediction_error})(#{input.get_value})"
+			
+			puts "Changing weight by #{new_weight - input.get_weight}"
 					
 			input.set_weight(new_weight)
 			
@@ -161,11 +163,12 @@ class ANN
 		#From 'Programming Collective Intelligence'
 		#For each node in the output layer	
 		#Calculate the difference between the node's current output and what it should be
-		#(from http://www.doc.ic.ac.uk/~nd/surprise_96/journal/vol4/cs11/report.html)
+		
 		
 		learning_rate = 0.1
 		
 		#The algorithm computes each EW by first computing the EA, the rate at which the error changes as the activity level of a unit is changed. For output units, the EA is simply the difference between the actual and the desired output.
+		#(from http://www.doc.ic.ac.uk/~nd/surprise_96/journal/vol4/cs11/report.html)
 		
 		#output_one
 		output_one_EA = backpropogate_for_output_neuron(@output_one, training_example.one_output, learning_rate)
