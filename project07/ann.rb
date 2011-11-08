@@ -7,12 +7,13 @@ class ANN
 	
 	def random_weight
 		result = Random.rand
-		sign = Random.rand(1)
+		sign = Random.rand(2)
 		
 		if(sign == 0)
 			result = (-1.0)*result
 		end
 		
+		puts result
 		return result
 	end
 	
@@ -71,13 +72,40 @@ class ANN
 	end
 	
 	def evaluate
+		feed_forward
+		
+		puts "Output 1 was: #{@output_one.get_value}"
+		puts "Output 2 was: #{@output_two.get_value}"
+		puts "Output 3 was: #{@output_three.get_value}"
+		
+		return true
+	end
 	
+	def train (input, target)
+	
+	end
+	
+	def feed_forward
 		@layers.each do |layer|
 			layer.evaluate
 		end
+	end
+	
+	def backpropogate(target)
+		@layers.reverse_each do |layer|
+			#For each layer, go through each node in that layer.
+			layer.get_neurons.each do |neuron|
+				#We want to make the weights of each input axon neuron better by bringing the weights closer to the optimum. (Minimal error)
+			
+			
+			end
+		end
+	end
+	
+	def calculate_error (expected, actual)
 		
-		return "Output 1 was: #{@output_one.get_value}"
-		return "Output 2 was: #{@output_two.get_value}"
-		return "Output 3 was: #{@output_three.get_value}"
+		error = expected - actual
+		
+		return error
 	end
 end
