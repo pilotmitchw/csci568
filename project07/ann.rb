@@ -1,6 +1,7 @@
 require_relative 'layer'
 require_relative 'axon'
 require_relative 'neuron'
+require_relative 'trainingexample'
 
 #ANN - models the entire neural network
 class ANN
@@ -81,8 +82,13 @@ class ANN
 		return true
 	end
 	
-	def train (input, target)
-	
+	def train (training_example, max_iterations)
+		iterations = 0
+		while(iterations < max_iterations)
+			iterations += 1
+			feed_forward
+			backpropogate(training_example)
+		end
 	end
 	
 	def feed_forward
@@ -91,16 +97,101 @@ class ANN
 		end
 	end
 	
-	def backpropogate(target)
-		@layers.reverse_each do |layer|
+	def backpropogate_for_output_neuron(neuron, expected, learning_rate)
+		inputs = neuron.get_inputs
 			
+		prediction_error = 0.0
+		inputs.each do |input|
+			prediction_error = expected - neuron.get_value
+			
+			#Change the strength of every incoming link in proportion to the link's current strength and the learning rate
+			new_weight = input.get_weight + learning_rate*(prediction_error)*input.get_value
+			#puts "#{new_weight} = #{input.get_weight} + #{learning_rate}(#{prediction_error})(#{input.get_value})"
+					
+			input.set_weight(new_weight)
+			
+			return prediction_error
+				
 		end
 	end
 	
-	def calculate_error (expected, actual)
-		
-		error = expected - actual
-		
-		return error
+	def backpropogate_for_hidden_neuron(neuron, ea, learning_rate)
+		inputs = neuron.get_inputs
+			
+		inputs.each do |input|
+			prediction_error = ea
+			
+			#Change the strength of every incoming link in proportion to the link's current strength and the learning rate
+			new_weight = input.get_weight + learning_rate*(prediction_error)*input.get_value
+			#puts "#{new_weight} = #{input.get_weight} + #{learning_rate}(#{prediction_error})(#{input.get_value})"
+					
+			input.set_weight(new_weight)
+			
+			return prediction_error
+				
+		end
 	end
+	
+	
+	def backpropogate(training_example)
+		#We treat the output layer seperately than the hidden layer because we know the values that the output layer is supposed to have.
+		#From 'Programming Collective Intelligence'
+		#For each node in the output layer	
+		#Calculate the difference between the node's current output and what it should be
+		#(from http://www.doc.ic.ac.uk/~nd/surprise_96/journal/vol4/cs11/report.html)
+		
+		learning_rate = 0.1
+		
+		#The algorithm computes each EW by first computing the EA, the rate at which the error changes as the activity level of a unit is changed. For output units, the EA is simply the difference between the actual and the desired output.
+		
+		#output_one
+		output_one_EA = backpropogate_for_output_neuron(@output_one, training_example.one_output, learning_rate)
+		#output_two
+		output_two_EA = backpropogate_for_output_neuron(@output_two, training_example.two_output, learning_rate)
+		#output_three
+		output_three_EA = backpropogate_for_output_neuron(@output_three, training_example.three_output, learning_rate)
+		
+		
+		#To compute the EA for a hidden unit in the layer just before the output layer, we first identify all the weights between that hidden unit and the output units to which it is connected. We then multiply those weights by the EAs of those output units and add the products. This sum equals the EA for the chosen hidden unit. After calculating all the EAs in the hidden layer just before the output layer, we can compute in like fashion the EAs for other layers, moving from layer to layer in a direction opposite to the way activities propagate through the network.
+		#(from http://www.doc.ic.ac.uk/~nd/surprise_96/journal/vol4/cs11/report.html)
+		
+		
+		#hidden_one
+		#Identify all the weights between hidden_one and outputs
+		weight_one = @hidden_one_to_output_one.get_weight
+		weight_two = @hidden_one_to_output_two.get_weight
+		weight_three = @hidden_one_to_output_three.get_weight
+		
+		#Multiply those weights by the EAs of those output units
+		multiplied_one = weight_one * output_one_EA
+		multiplied_two = weight_two * output_two_EA
+		multiplied_three = weight_three * output_three_EA
+		
+		#Sum the products
+		summed_products = multiplied_one + multiplied_two + multiplied_three
+		
+		#This equals the EA for the chosen hidden unit.
+		#Should be able to use the same process, then, as the hidden units use
+		hidden_one_EA = backpropogate_for_hidden_neuron(@hidden_one, summed_products, learning_rate)
+		
+		
+		#hidden_two
+		#Identify all the weights between hidden_two and outputs
+		weight_one = @hidden_two_to_output_one.get_weight
+		weight_two = @hidden_two_to_output_two.get_weight
+		weight_three = @hidden_two_to_output_three.get_weight
+		
+		#Multiply those weights by the EAs of those output units
+		multiplied_one = weight_one * output_one_EA
+		multiplied_two = weight_two * output_two_EA
+		multiplied_three = weight_three * output_three_EA
+		
+		#Sum the products
+		summed_products = multiplied_one + multiplied_two + multiplied_three
+		
+		#This equals the EA for the chosen hidden unit.
+		#Should be able to use the same process, then, as the hidden units use
+		hidden_two_EA = backpropogate_for_hidden_neuron(@hidden_two, summed_products, learning_rate)
+	end
+
 end

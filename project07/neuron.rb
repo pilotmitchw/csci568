@@ -62,9 +62,9 @@ class Neuron
 	
 		total = 0.0
 		@inputs.each do |input|
+			puts "BLAH! #{input.get_value}"
 			total = total + input.get_value
 		end
-		
 		total = total - @bias
 		
 		#puts "Node total was #{total}"
