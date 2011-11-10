@@ -80,6 +80,8 @@ class Neuron
 		#Linear function output
 		
 		output = total
+		
+		
 	
 		@output_value = output
 	
