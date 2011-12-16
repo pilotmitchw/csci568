@@ -1,0 +1,77 @@
+{\rtf1\ansi\deff0\adeflang1025
+{\fonttbl{\f0\froman\fprq2\fcharset0 Times New Roman;}{\f1\froman\fprq2\fcharset0 Times New Roman;}{\f2\fswiss\fprq2\fcharset0 Arial;}{\f3\fmodern\fprq1\fcharset0 Courier New;}{\f4\froman\fprq2\fcharset0 Times New Roman;}{\f5\fnil\fprq2\fcharset0 SimSun;}{\f6\fnil\fprq2\fcharset0 Mangal;}{\f7\fnil\fprq0\fcharset0 Mangal;}}
+{\colortbl;\red0\green0\blue0;\red0\green0\blue128;\red128\green128\blue128;}
+{\stylesheet{\s1\cf0{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\rtlch\afs24\lang1081\ltrch\dbch\langfe2052\hich\fs24\lang1033\loch\fs24\lang1033\snext1 Normal;}
+{\s2\sb240\sa120\keepn\cf0{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\rtlch\af6\afs28\lang1081\ltrch\dbch\af5\langfe2052\hich\f2\fs28\lang1033\loch\f2\fs28\lang1033\sbasedon1\snext3 Heading;}
+{\s3\sa120\cf0{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\rtlch\afs24\lang1081\ltrch\dbch\langfe2052\hich\fs24\lang1033\loch\fs24\lang1033\sbasedon1\snext3 Body Text;}
+{\s4\sa120\cf0{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\rtlch\af7\afs24\lang1081\ltrch\dbch\langfe2052\hich\fs24\lang1033\loch\fs24\lang1033\sbasedon3\snext4 List;}
+{\s5\sb120\sa120\cf0{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\rtlch\af7\afs24\lang1081\ai\ltrch\dbch\langfe2052\hich\fs24\lang1033\i\loch\fs24\lang1033\i\sbasedon1\snext5 caption;}
+{\s6\cf0{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\rtlch\af7\afs24\lang1081\ltrch\dbch\langfe2052\hich\fs24\lang1033\loch\fs24\lang1033\sbasedon1\snext6 Index;}
+{\s7\li720\ri0\lin720\rin0\fi-430\cf0{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\rtlch\afs24\lang1081\ltrch\dbch\langfe2052\hich\fs24\lang1033\loch\fs24\lang1033\sbasedon1\snext1 toc 1;}
+{\s8\li1440\ri0\lin1440\rin0\fi-430\cf0{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\rtlch\afs24\lang1081\ltrch\dbch\langfe2052\hich\fs24\lang1033\loch\fs24\lang1033\sbasedon1\snext1 toc 2;}
+{\s9\li2160\ri0\lin2160\rin0\fi-430\cf0{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\rtlch\afs24\lang1081\ltrch\dbch\langfe2052\hich\fs24\lang1033\loch\fs24\lang1033\sbasedon1\snext1 toc 3;}
+{\s10\li2880\ri0\lin2880\rin0\fi-430\cf0{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\rtlch\afs24\lang1081\ltrch\dbch\langfe2052\hich\fs24\lang1033\loch\fs24\lang1033\sbasedon1\snext1 toc 4;}
+{\s11\cf0\tx431{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\rtlch\af0\afs24\lang1081\ltrch\dbch\af0\langfe2052\hich\f0\fs24\lang1033\loch\f0\fs24\lang1033\sbasedon12\snext1 Numbered Heading 1;}
+{\s12\sb440\sa60\cf0{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\rtlch\af2\afs34\lang1081\ab\ltrch\dbch\af2\langfe2052\hich\f2\fs34\lang1033\b\loch\f2\fs34\lang1033\b\sbasedon1\snext1 heading 1;}
+{\s13\cf0\tx431{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\rtlch\af0\afs24\lang1081\ltrch\dbch\af0\langfe2052\hich\f0\fs24\lang1033\loch\f0\fs24\lang1033\sbasedon14\snext1 Numbered Heading 2;}
+{\s14\sb440\sa60\cf0{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\rtlch\af2\afs28\lang1081\ab\ltrch\dbch\af2\langfe2052\hich\f2\fs28\lang1033\b\loch\f2\fs28\lang1033\b\sbasedon1\snext1 heading 2;}
+{\s15\li720\ri0\lin720\rin0\fi-430\cf0{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\rtlch\af0\afs24\lang1081\ltrch\dbch\af0\langfe2052\hich\f0\fs24\lang1033\loch\f0\fs24\lang1033\snext1 Square List;}
+{\s16\li720\ri0\lin720\rin0\fi-430\cf0{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\rtlch\afs24\lang1081\ltrch\dbch\langfe2052\hich\fs24\lang1033\loch\fs24\lang1033\sbasedon1\snext1 Lower Roman List;}
+{\s17\li720\ri0\lin720\rin0\fi-430\cf0{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\rtlch\af0\afs24\lang1081\ltrch\dbch\af0\langfe2052\hich\f0\fs24\lang1033\loch\f0\fs24\lang1033\snext1 Diamond List;}
+{\s18\li720\ri0\lin720\rin0\fi-430\cf0{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\rtlch\af0\afs24\lang1081\ltrch\dbch\af0\langfe2052\hich\f0\fs24\lang1033\loch\f0\fs24\lang1033\snext1 Numbered List;}
+{\s19\li720\ri0\lin720\rin0\fi-430\cf0{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\rtlch\af0\afs24\lang1081\ltrch\dbch\af0\langfe2052\hich\f0\fs24\lang1033\loch\f0\fs24\lang1033\snext1 Triangle List;}
+{\s20\cf0\tx431{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\rtlch\af0\afs24\lang1081\ltrch\dbch\af0\langfe2052\hich\f0\fs24\lang1033\loch\f0\fs24\lang1033\sbasedon21\snext1 Numbered Heading 3;}
+{\s21\sb440\sa60\cf0{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\rtlch\af2\afs24\lang1081\ab\ltrch\dbch\af2\langfe2052\hich\f2\fs24\lang1033\b\loch\f2\fs24\lang1033\b\sbasedon1\snext1 heading 3;}
+{\s22\li720\ri0\lin720\rin0\fi-430\cf0{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\rtlch\af0\afs24\lang1081\ltrch\dbch\af0\langfe2052\hich\f0\fs24\lang1033\loch\f0\fs24\lang1033\snext1 Dashed List;}
+{\s23\li720\ri0\lin720\rin0\fi-430\cf0{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\rtlch\af0\afs24\lang1081\ltrch\dbch\af0\langfe2052\hich\f0\fs24\lang1033\loch\f0\fs24\lang1033\sbasedon18\snext1 Upper Roman List;}
+{\s24\sb440\sa60\cf0{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\rtlch\af2\afs24\lang1081\ab\ltrch\dbch\af2\langfe2052\hich\f2\fs24\lang1033\b\loch\f2\fs24\lang1033\b\sbasedon1\snext1 heading 4;}
+{\s25\li720\ri0\lin720\rin0\fi-430\cf0{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\rtlch\af0\afs24\lang1081\ltrch\dbch\af0\langfe2052\hich\f0\fs24\lang1033\loch\f0\fs24\lang1033\snext1 Heart List;}
+{\s26\sb240\sa119\cf0\qc{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\rtlch\af2\afs32\lang1081\ab\ltrch\dbch\af2\langfe2052\hich\f2\fs32\lang1033\b\loch\f2\fs32\lang1033\b\sbasedon1\snext1 Contents Header;}
+{\s27\li720\ri0\lin720\rin0\fi-430\cf0{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\rtlch\af0\afs24\lang1081\ltrch\dbch\af0\langfe2052\hich\f0\fs24\lang1033\loch\f0\fs24\lang1033\sbasedon18\snext1 Upper Case List;}
+{\s28\li720\ri0\lin720\rin0\fi-430\cf0{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\rtlch\af0\afs24\lang1081\ltrch\dbch\af0\langfe2052\hich\f0\fs24\lang1033\loch\f0\fs24\lang1033\snext1 Bullet List;}
+{\s29\li720\ri0\lin720\rin0\fi-430\cf0{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\rtlch\af0\afs24\lang1081\ltrch\dbch\af0\langfe2052\hich\f0\fs24\lang1033\loch\f0\fs24\lang1033\snext1 Hand List;}
+{\s30\li720\ri0\lin720\rin0\fi-430\cf0{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\rtlch\af0\afs24\lang1081\ltrch\dbch\af0\langfe2052\hich\f0\fs24\lang1033\loch\f0\fs24\lang1033\snext1 Tick List;}
+{\s31\li720\ri0\lin720\rin0\fi-430\cf0{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\rtlch\af0\afs24\lang1081\ltrch\dbch\af0\langfe2052\hich\f0\fs24\lang1033\loch\f0\fs24\lang1033\sbasedon18\snext1 Lower Case List;}
+{\s32\li1440\ri1440\lin1440\rin1440\fi0\sa119\cf0{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\rtlch\afs24\lang1081\ltrch\dbch\langfe2052\hich\fs24\lang1033\loch\fs24\lang1033\sbasedon1\snext1 Block Text;}
+{\s33\cf0\tx1584{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\rtlch\afs24\lang1081\ltrch\dbch\langfe2052\hich\fs24\lang1033\loch\fs24\lang1033\sbasedon11\snext1 Section Heading;}
+{\s34\li720\ri0\lin720\rin0\fi-430\cf0{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\rtlch\af0\afs24\lang1081\ltrch\dbch\af0\langfe2052\hich\f0\fs24\lang1033\loch\f0\fs24\lang1033\snext1 Implies List;}
+{\s35\li720\ri0\lin720\rin0\fi-430\cf0{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\rtlch\af0\afs24\lang1081\ltrch\dbch\af0\langfe2052\hich\f0\fs24\lang1033\loch\f0\fs24\lang1033\snext1 Box List;}
+{\s36\li720\ri0\lin720\rin0\fi-430\cf0{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\rtlch\af0\afs24\lang1081\ltrch\dbch\af0\langfe2052\hich\f0\fs24\lang1033\loch\f0\fs24\lang1033\snext1 Star List;}
+{\s37\cf0{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\rtlch\af3\afs24\lang1081\ltrch\dbch\af3\langfe2052\hich\f3\fs24\lang1033\loch\f3\fs24\lang1033\sbasedon1\snext1 Plain Text;}
+{\s38\cf0\tx1584{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\rtlch\afs24\lang1081\ltrch\dbch\langfe2052\hich\fs24\lang1033\loch\fs24\lang1033\sbasedon11\snext1 Chapter Heading;}
+{\*\cs40\cf0\rtlch\af0\afs24\lang1081\ltrch\dbch\af0\langfe2052\hich\f0\fs24\lang1033\loch\f0\fs24\lang1033 Endnote Symbol;}
+{\*\cs41\cf0\rtlch\afs24\lang1081\ltrch\dbch\langfe2052\hich\fs24\lang1033\loch\fs24\lang1033\sbasedon42 Endnote Text;}
+{\*\cs42\cf0\rtlch\afs24\lang1081\ltrch\dbch\langfe2052\hich\fs24\lang1033\loch\fs24\lang1033 Normal;}
+{\*\cs43\cf0\rtlch\af0\afs20\lang1081\ltrch\dbch\af0\langfe2052\hich\f0\fs20\lang1033\loch\f0\fs20\lang1033 Reference;}
+{\*\cs44\cf0\rtlch\af0\afs20\lang1081\ltrch\dbch\af0\langfe2052\hich\f0\fs20\lang1033\loch\f0\fs20\lang1033 WW-Reference;}
+{\*\cs45\cf0\rtlch\afs20\lang1081\ltrch\dbch\langfe2052\hich\fs20\lang1033\loch\fs20\lang1033\sbasedon42 Footnote Text;}
+{\*\cs46\cf0\rtlch\af0\afs20\lang1081\ltrch\dbch\af0\langfe2052\hich\f0\fs20\lang1033\loch\f0\fs20\lang1033 WW-Reference1;}
+{\*\cs47\cf2\ul\ulc0\rtlch\af0\afs24\lang255\ltrch\dbch\af0\langfe255\hich\f0\fs24\lang255\loch\f0\fs24\lang255 Internet link;}
+}
+{\info{\creatim\yr0\mo0\dy0\hr0\min0}{\revtim\yr0\mo0\dy0\hr0\min0}{\printim\yr0\mo0\dy0\hr0\min0}{\comment StarWriter}{\vern3200}}\deftab720
+{\*\pgdsctbl
+{\pgdsc0\pgdscuse195\pgwsxn12240\pghsxn15840\marglsxn1440\margrsxn1440\margtsxn1440\margbsxn1440\pgdscnxt0 Standard;}
+{\pgdsc1\pgdscuse195\pgwsxn12240\pghsxn15840\marglsxn1134\margrsxn1134\margtsxn1134\margbsxn1134\pgdscnxt1 Endnote;}}
+{\*\pgdscno0}\paperh15840\paperw12240\margl1440\margr1440\margt1440\margb1440\sectd\sbknone\pgwsxn12240\pghsxn15840\marglsxn1440\margrsxn1440\margtsxn1440\margbsxn1440\ftnbj\ftnstart1\ftnrstcont\ftnnar\aenddoc\aftnrstcont\aftnstart1\aftnnar
+\pard\plain \ltrpar\s1\cf0\sl240\slmult1\qr{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\rtlch\afs24\lang1081\ltrch\dbch\langfe2052\hich\fs24\lang1033\loch\fs24\lang1033 {\rtlch \ltrch\loch\f0\fs24\lang1033\i0\b0 Mitchell Wright}
+\par \pard\plain \ltrpar\s1\cf0\sl240\slmult1\qr{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\rtlch\afs24\lang1081\ltrch\dbch\langfe2052\hich\fs24\lang1033\loch\fs24\lang1033 {\rtlch \ltrch\loch\f0\fs24\lang1033\i0\b0 Data Mining}
+\par \pard\plain \ltrpar\s1\cf0{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\rtlch\afs24\lang1081\ltrch\dbch\langfe2052\hich\fs24\lang1033\loch\fs24\lang1033 {\rtlch \ltrch\loch\f0\fs24\lang1033\i0\b0 Project 9: KDD cup 2011 Challenge}
+\par \pard\plain \ltrpar\s1\cf0\sl240\slmult1{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\ql\rtlch\afs24\lang1081\ltrch\dbch\langfe2052\hich\fs24\lang1033\loch\fs24\lang1033 
+\par \pard\plain \ltrpar\s1\cf0\sl240\slmult1{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\ql\rtlch\afs24\lang1081\ab\ltrch\dbch\langfe2052\hich\fs24\lang1033\b\loch\fs24\lang1033\b {\rtlch \ltrch\loch\f0\fs24\lang1033\i0\b Exploring the Data}
+\par \pard\plain \ltrpar\s1\cf0\sl240\slmult1{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\ql\rtlch\afs24\lang1081\ltrch\dbch\langfe2052\hich\fs24\lang1033\loch\fs24\lang1033 {\rtlch \ltrch\loch\f0\fs24\lang1033\i0\b0 \tab The KDD cup data consists of multiple relations of data, with the tuples related to each other via foreign keys in differing tables. I wanted to get an initial idea of what the data represented, and figured that the easiest place to start was to visually 
+inspect the data. The KDD cup website (particularly this page {\field{\*\fldinst HYPERLINK "http://kddcup.yahoo.com/datasets.php" }{\fldrslt \*\cs47\cf2\ul\ulc0\rtlch\ltrch\dbch\hich\f0\fs24\lang255\loch\f0\fs24\lang255 http://kddcup.yahoo.com/datasets.php}}) had the overall schema of the data freely available.}
+\par \pard\plain \ltrpar\s1\cf0{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\rtlch\afs24\lang1081\ltrch\dbch\langfe2052\hich\fs24\lang1033\loch\fs24\lang1033 {\rtlch \ltrch\loch\f0\fs24\lang1033\i0\b0 \tab The available data consists of a set of ratings that link a user, that user\'92s opinion, and a musical item (track, album, artist, and genre) together. A user could have rated any of these things separately, allowing a finer distinction among different musi
+cal items. For example, a user could rate an album highly even though he or she only liked one or two of the songs on it, and vice versa.}
+\par \pard\plain \ltrpar\s1\cf0{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\rtlch\afs24\lang1081\ltrch\dbch\langfe2052\hich\fs24\lang1033\loch\fs24\lang1033 {\rtlch \ltrch\loch\f0\fs24\lang1033\i0\b0 \tab The musical items themselves are organized in a hierarchical structure, with tracks belonging to albums, artists, and genres. Albums contain tracks and belong to a genre and artist. Artists can belong to one or more genres. The genres are the \'91highest\'92 le
+vel of the hierarchy because they are the most abstract and overarching musical entities in the data.}
+\par \pard\plain \ltrpar\s1\cf0{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\rtlch\afs24\lang1081\ltrch\dbch\langfe2052\hich\fs24\lang1033\loch\fs24\lang1033 {\rtlch \ltrch\loch\f0\fs24\lang1033\i0\b0 \tab Beyond this initial sense of the data\'92s structure, looking at walls of foreign keys was not very interesting. The next step was to transfer the data to a format that would be easier to view and query.}
+\par \pard\plain \ltrpar\s1\cf0{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\rtlch\afs24\lang1081\ltrch\dbch\langfe2052\hich\fs24\lang1033\loch\fs24\lang1033 
+\par \pard\plain \ltrpar\s1\cf0\sl240\slmult1{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\ql\rtlch\afs24\lang1081\ab\ltrch\dbch\langfe2052\hich\fs24\lang1033\b\loch\fs24\lang1033\b {\rtlch \ltrch\loch\f0\fs24\lang1033\i0\b Transferring to SQLite}
+\par \pard\plain \ltrpar\s1\cf0\sl240\slmult1{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\ql\rtlch\afs24\lang1081\ltrch\dbch\langfe2052\hich\fs24\lang1033\loch\fs24\lang1033 {\rtlch \ltrch\loch\f0\fs24\lang1033\i0\b0 \tab I chose to use SQLite for this project because I have had experience with it during Database Management, and was more familiar with it than any other databases. By using Ruby, SQLite, and ActiveRecord, I hoped to make working with the data easier. I was n
+ot very familiar with ActiveRecord at the time of this project, so I had to spend some time getting up to speed on how ActiveRecord works.}
+\par \pard\plain \ltrpar\s1\cf0{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\rtlch\afs24\lang1081\ltrch\dbch\langfe2052\hich\fs24\lang1033\loch\fs24\lang1033 {\rtlch \ltrch\loch\f0\fs24\lang1033\i0\b0 \tab While using ActiveRecord, I found that I could not, for the life of me, get the 'id' value into the SQLite database. After spending a few hours trying to figure out why, I gave up and decided to do something else. I implemented several fixes I found on th
+e internet, but nothing worked.}
+\par \pard\plain \ltrpar\s1\cf0{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\rtlch\afs24\lang1081\ltrch\dbch\langfe2052\hich\fs24\lang1033\loch\fs24\lang1033 
+\par \pard\plain \ltrpar\s1\cf0\sl240\slmult1{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\ql\rtlch\afs24\lang1081\ab\ltrch\dbch\langfe2052\hich\fs24\lang1033\b\loch\fs24\lang1033\b {\rtlch \ltrch\loch\f0\fs24\lang1033\i0\b Summary Statistics}
+\par \pard\plain \ltrpar\s1\cf0{\*\hyphen2\hyphlead2\hyphtrail2\hyphmax0}\rtlch\afs24\lang1081\ltrch\dbch\langfe2052\hich\fs24\lang1033\loch\fs24\lang1033{\rtlch \ltrch\loch\f0\fs24\lang1033\i0\b\rtlch\ltrch\dbch\hich\b0\loch\b0 \tab Without the data in a relational database, I decided to go ahead and use WEKA to generate some summary statistics of the user ratings.}
+\par }
