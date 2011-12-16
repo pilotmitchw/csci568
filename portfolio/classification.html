@@ -14,7 +14,225 @@
 	</head>
 
 	<body>
-
+        <h1>Classification</h1>
+        <p>Classification is the task of assigning objects to one of several predefined catagories. Classification takes as input as collection of records, then uses those records to construct a classification model, or a system by which an algorithm can determine which group a particular object belongs in. The model is trained using some subset of those records in order to extract the attributes that determine which class an object belongs in. This model, once trained, is tested on previously unused data objects, called the test set, and is pruned and tweaked to improve its accuracy. After a threshold of accuracy is reached, the model is then used to classify other unknown data objects.</p>
+        
+        <h2>Classification algorithms</h2>
+        <p>The classification algorithms that will be discussed here are Decision tree, rule based, K-nearest-neighbor (KNN), Bayesian, and Artifical Neural Networks.</p>
+        <h3>Decision tree</h3>
+        <p>The decision tree classifier is a simple yet widely used classification technique. Decision tree works by determining a number of questions to ask about the data (the model), and uses the metric of information gain to determine which questions to ask in which order. The goal of the decision tree algorithm is to generate a hierarchical tree of questions that the model can ask to seperate data objects into each class. The best question for each level of the tree is the one that seperates the remaining data objects into the most pure subgroups. For example, a question that splits into subgroups of 90 purity, with 90 percent of the first group being of class A and 10 percent being of class B, and vice versa for the alternate answer, is a good question to ask. A worse question, but still acceptable, is a question that splits the remaining dataset into sets of 80 percent purity. Decision tree is simple enough to use with almost all datasets.</p>
+        <h3>Rule-based</h3>
+        <p>Rule based classification generates a set of rules to apply to a data object to determine the class of that object. The rules are generated in the training stage and tested with the test set. The rules are generated in a fashion similar to the decision tree algorithm - rules that result in the most pure result sets are chosen and applied first. Rule based classifiers are used to produce descriptive models similar performance to the decision tree classifier, and is easy to use for similar datasets.</p>
+        <h3>K-nearest-neighbors</h3>
+        <p>K-nearest-neighbors classification is a very simple classification system that determines the k-nearest training examples for a test object and assigns to that test object the most frequent class label of the k neighbors. K nearest neighbor classifiers usually have more flexible data models than decision tree and rule-based classifers. Unlike the other algorithms, this method is dependent on a similarity metric, and using a poor similarity metric will result in a poor result for the classification.</p>
+        <h3>Baysian classification</h3>
+        <p>Baysian classifiers use Bayes Theorem from probability to model probabilistic relationships between class labels and sets of attributes. This classification technique uses Bayes theorem raw from probability to determine the likelihood that a data object belongs to a certain class. If the probabilty for a class meets or exceeds a certain threshold, the data object is given that label.</p>
+        <h3>Artifical neural network</h3>
+        <p>An artifical neural network is a classification model that uses a set of neurons and connections between them to classify data objects. Each neuron has a weighted link to some number of other neurons in other layers, with the overall structure being, at the bottom, a set of neurons that manage the inputs of the neural network, some number of hidden layers (layers that the user does not access or use directly), and an output layer, where the result is reported. This classification model is based on how neurologists believe the human brain works. In the training stage of an artificial neural network, some number of training examples with known outputs are used to modify the weights of the connections between the neurons using a technique called back-propagation. In back-propagation, the amount of error between the actual and expected outputs is used to modify the weights of the layer directly below the output layer, and this process is repeated until the network reports the correct output for each training example. The model is now trained and can be used to classify previously unseen examples.</p>
+        <p>The following is an attempt at implementing a neural network in Ruby. This implementation is strange because it works well rarely, but often the weights of the connections explode to infinity.</p>
+        <pre>
+        class ANN
+	
+            def random_weight
+                result = Random.rand
+                sign = Random.rand(2)
+		
+                if(sign == 0)
+                    result = (-1.0)*result
+                end
+		
+                return result
+            end
+	
+            def initialize
+                @layers = []
+		
+                #Input layer
+                #Three input nodes in one layer
+                @input_one = Neuron.new
+                @input_two = Neuron.new
+                @input_three = Neuron.new
+                @input_layer = Layer.new
+		
+                @input_layer.add_neuron(@input_one)
+                @input_layer.add_neuron(@input_two)
+                @input_layer.add_neuron(@input_three)
+		
+                @layers << @input_layer
+		
+                #Two nodes in a hidden_layer
+                @hidden_layer = Layer.new
+                @hidden_one = Neuron.new
+                @hidden_two = Neuron.new
+                @layers << @hidden_layer
+		
+                #Connections from input layer to hidden layer
+                @input_one_to_hidden_one = Axon.new(@input_one, @hidden_one, random_weight)
+                @input_one_to_hidden_two = Axon.new(@input_one, @hidden_two, random_weight)
+                @input_two_to_hidden_one = Axon.new(@input_two, @hidden_one, random_weight)
+                @input_two_to_hidden_two = Axon.new(@input_two, @hidden_two, random_weight)
+                @input_three_to_hidden_one = Axon.new(@input_three, @hidden_one, random_weight)
+                @input_three_to_hidden_two = Axon.new(@input_three, @hidden_two, random_weight)
+		
+                #Three nodes in the output layer
+                @output_layer = Layer.new
+                @output_one = Neuron.new
+                @output_two = Neuron.new
+                @output_three = Neuron.new
+                @layers << @output_layer
+		
+                #Connections from hidden layer to output layer
+                @hidden_one_to_output_one = Axon.new(@hidden_one, @output_one, random_weight)
+                @hidden_one_to_output_two = Axon.new(@hidden_one, @output_two, random_weight)
+                @hidden_one_to_output_three = Axon.new(@hidden_one, @output_three, random_weight)
+                @hidden_two_to_output_one = Axon.new(@hidden_two, @output_one, random_weight)
+                @hidden_two_to_output_two = Axon.new(@hidden_two, @output_two, random_weight)
+                @hidden_two_to_output_three = Axon.new(@hidden_two, @output_three, random_weight)		
+            end
+		
+            def load_inputs(input_one, input_two, input_three )
+                @input_one.set_value (input_one)
+                @input_two.set_value (input_two)
+                @input_three.set_value (input_three)
+		
+                puts "Inputs loaded:"
+                puts "Input 1: #{@input_one.get_value}"
+                puts "Input 2: #{@input_two.get_value}"
+                puts "Input 3: #{@input_three.get_value}"
+		
+                #@input_one.evaluate
+                #@input_two.evaluate
+                #@input_three.evaluate
+		
+                #puts "Inputs loaded:"
+                #puts "Input 1: #{@input_one.get_value}"
+                #puts "Input 2: #{@input_two.get_value}"
+                #puts "Input 3: #{@input_three.get_value}"		
+            end
+	
+            def evaluate
+                feed_forward	
+                #To prove input gets all the way to the end of the operation
+                #puts "Input 1: #{@input_one.get_value}"
+                #puts "Input 2: #{@input_two.get_value}"
+                #puts "Input 3: #{@input_three.get_value}"		
+                puts "Output 1 was: #{@output_one.get_value}"
+                puts "Output 2 was: #{@output_two.get_value}"
+                puts "Output 3 was: #{@output_three.get_value}"
+		
+                return true
+            end
+	
+            def train (training_example, max_iterations)
+                iterations = 0
+                while(iterations < max_iterations)
+                    iterations += 1
+                    feed_forward
+                    backpropogate(training_example)
+                end
+            end
+	
+            def feed_forward
+                @hidden_one.evaluate
+                @hidden_two.evaluate
+                @output_one.evaluate
+                @output_two.evaluate
+                @output_three.evaluate
+            end
+	
+            def backpropogate_for_output_neuron(neuron, expected, learning_rate)
+                inputs = neuron.get_inputs
+                prediction_error = 0.0
+                inputs.each do |input|
+                    prediction_error = expected - neuron.get_value
+			
+                    #Change the strength of every incoming link in proportion to the link's current strength and the learning rate
+                    new_weight = input.get_weight + learning_rate*(prediction_error)*input.get_value
+                    #puts "#{new_weight} = #{input.get_weight} + #{learning_rate}(#{prediction_error})(#{input.get_value})"
+			
+                    puts "Changing weight by #{new_weight - input.get_weight}"
+					
+                    input.set_weight(new_weight)
+			
+                    return prediction_error				
+                end
+            end
+	
+            def backpropogate_for_hidden_neuron(neuron, ea, learning_rate)
+                inputs = neuron.get_inputs
+			
+                inputs.each do |input|
+                    prediction_error = ea
+			
+                    #Change the strength of every incoming link in proportion to the link's current strength and the learning rate
+                    new_weight = input.get_weight + learning_rate*(prediction_error)*input.get_value
+                    #puts "#{new_weight} = #{input.get_weight} + #{learning_rate}(#{prediction_error})(#{input.get_value})"
+					
+                    input.set_weight(new_weight)
+			
+                    return prediction_error				
+                end
+            end
+		
+            def backpropogate(training_example)
+                #We treat the output layer seperately than the hidden layer because we know the values that the output layer is supposed to have.
+                #From 'Programming Collective Intelligence'
+                #For each node in the output layer	
+                #Calculate the difference between the node's current output and what it should be
+				
+                learning_rate = 0.1
+		
+                #The algorithm computes each EW by first computing the EA, the rate at which the error changes as the activity level of a unit is changed. For output units, the EA is simply the difference between the actual and the desired output.
+                #(from http://www.doc.ic.ac.uk/~nd/surprise_96/journal/vol4/cs11/report.html)
+		
+                #output_one
+                output_one_EA = backpropogate_for_output_neuron(@output_one, training_example.one_output, learning_rate)
+                #output_two
+                output_two_EA = backpropogate_for_output_neuron(@output_two, training_example.two_output, learning_rate)
+                #output_three
+                output_three_EA = backpropogate_for_output_neuron(@output_three, training_example.three_output, learning_rate)
+				
+                #To compute the EA for a hidden unit in the layer just before the output layer, we first identify all the weights between that hidden unit and the output units to which it is connected. We then multiply those weights by the EAs of those output units and add the products. This sum equals the EA for the chosen hidden unit. After calculating all the EAs in the hidden layer just before the output layer, we can compute in like fashion the EAs for other layers, moving from layer to layer in a direction opposite to the way activities propagate through the network.
+                #(from http://www.doc.ic.ac.uk/~nd/surprise_96/journal/vol4/cs11/report.html)
+				
+                #hidden_one
+                #Identify all the weights between hidden_one and outputs
+                weight_one = @hidden_one_to_output_one.get_weight
+                weight_two = @hidden_one_to_output_two.get_weight
+                weight_three = @hidden_one_to_output_three.get_weight
+		
+                #Multiply those weights by the EAs of those output units
+                multiplied_one = weight_one * output_one_EA
+                multiplied_two = weight_two * output_two_EA
+                multiplied_three = weight_three * output_three_EA
+		
+                #Sum the products
+                summed_products = multiplied_one + multiplied_two + multiplied_three
+		
+                #This equals the EA for the chosen hidden unit.
+                #Should be able to use the same process, then, as the hidden units use
+                hidden_one_EA = backpropogate_for_hidden_neuron(@hidden_one, summed_products, learning_rate)
+				
+                #hidden_two
+                #Identify all the weights between hidden_two and outputs
+                weight_one = @hidden_two_to_output_one.get_weight
+                weight_two = @hidden_two_to_output_two.get_weight
+                weight_three = @hidden_two_to_output_three.get_weight
+		
+                #Multiply those weights by the EAs of those output units
+                multiplied_one = weight_one * output_one_EA
+                multiplied_two = weight_two * output_two_EA
+                multiplied_three = weight_three * output_three_EA
+		
+                #Sum the products
+                summed_products = multiplied_one + multiplied_two + multiplied_three
+		
+                #This equals the EA for the chosen hidden unit.
+                #Should be able to use the same process, then, as the hidden units use
+                hidden_two_EA = backpropogate_for_hidden_neuron(@hidden_two, summed_products, learning_rate)
+            end
+        end
+        </pre>
 	</body>
 
 </html>

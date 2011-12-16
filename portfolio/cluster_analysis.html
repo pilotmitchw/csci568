@@ -1,19 +1,131 @@
-<!--
-	Needs:
-	-Introduction descr clustering
-	- Sections for each algorithm
-		- title, descr, illustration, bene. drawbasks, and common use cases
-		- Where possible, provide implementations
-	- 2 to 3 pages
-
--->
-
 <html>
 	<head>
 		<title>Cluster Analysis</title>
 	</head>
 
 	<body>
+        <h1>Cluster Analysis</h1>
+        <p>Cluster analysis groups data objects based only on the information found in the data that describes the objects and their relationships. A clustering algorithm is one that takes a dataset and groups its data objects in a way that each data object is similar to the other objects in its group (called a 'cluster') and dissimilar to objects in other clusters. A good clustering will result in a number of clusters whose data objects are very similar inside each cluster but very dissimilar between clusters. Cluster analysis is a good early step in processing a dataset because it often requires very little additional knowledge and the groups found can help the data scientist make decisions of where to go next. The three clustering algorithms discussed in this course are K-means, Agglomerative Hierarchical clustering, and DBSCAN.</p>
+        <h2>Clustering algorithms</h2>
+        <h3>K-means</h3>
+        <p>The K-means clustering is a partitional (it chooses to seperate objects where possible) algorithm that attempts to find a user-specified number of clusters (K) which are represented by their centroids. A centroid is a created artifact that is located, at the end of the algorithm, at the center of one of the clusters. K-means uses similarity metrics to determine which centroid a data object is nearest to, then moves the centroid closer to the average or center point of all the data objects assigned to it. K-means is relatively space- and time- lightweight, but K-means is susceptible to errors caused by outliers and does not handle clusters that are not circular (called non-globular clusters) very well. Also, K-means is not very useful for clusters that very widely in size and density.</p>
+        <p>The following is an implementation of K-means in Ruby:</p>
+        <pre>
+        class KMeans
 
+            def initialize()
+                @distance_metric = EuclideanDistance.new
+            end
+	
+            def cluster (k, data_objects)
+		
+                centroids = []
+                @dimensionality = data_objects[0].attributes.length
+                k.times do |i| 
+                    location = []
+			
+                    @dimensionality.times do |j|
+                        location << rand(10).to_f
+                    end
+			
+                    centroids << Centroid.new(location)
+                end
+		
+                centroids_moved = true
+		
+                while centroids_moved 
+                    centroids_moved = false
+			
+                    good_centroids = false
+			
+                    while not good_centroids
+                        good_centroids = true
+				
+                        #Calculate proximity for each point to each centroid and assign each point to its closest centroid.
+                        data_objects.each do |data_object|
+                            #puts "Processing data object"
+                            #data_object.print
+                            closest = nil
+                            distance_buffer = 10000; #Initialize to something better.
+                            centroids.each do |centroid|
+                                distance = @distance_metric.distance(data_object, centroid)
+                                #puts "Distance: #{distance}"
+                                #puts "Distance buffer: #{distance_buffer}"
+                                if(not distance.nil? and distance < distance_buffer)
+                                    closest = centroid
+                                    distance_buffer = distance
+                                end
+                            end
+				
+                            closest.add(data_object)
+                        end
+			
+                        #look for centroids with no objects
+                        centroids.each do |centroid|
+                            if (centroid.data_objects.nil? or centroid.data_objects.length == 0)
+                                good_centroids = false
+						
+                                location = []
+			
+                                @dimensionality.times do |j|
+                                location << rand(10).to_f
+						
+                                centroid.attributes = location
+                    end
+                            end
+                        end
+                    end
+			
+			
+			
+                    #Calculate the average of all of each centroid's data objects, then move the centroid to that location
+                    centroids.each do |centroid|
+                        average_attributes = []
+				
+                        #Dimensionality is equal to number of values in centroid's attribute field
+                        centroid.attributes.each_with_index do |centroid_attribute, index|
+                            total_for_attribute = 0.0
+				
+                            centroid.data_objects.each do |data_object|
+                                total_for_attribute += data_object.attributes[index]
+                            end
+					
+                            #puts centroid.data_objects.length
+                            if(centroid.data_objects.length != 0)
+                                average_attributes << total_for_attribute / centroid.data_objects.length
+                            else
+			
+                            end
+                        end
+				
+                        average_attributes.each_with_index do |avg, index|
+                            if(centroid.attributes[index] != avg)
+                                #puts "Centroid was at #{centroid.attributes[index]}, will be at #{avg}"
+                                centroids_moved = true
+                            end
+                        end
+				
+                        #puts "Setting centroid to location: #{average_attributes[0]}, #{average_attributes[1]}, #{average_attributes[2]}, #{average_attributes[3]}"
+                        centroid.attributes = average_attributes
+                        if(centroids_moved)
+                            centroid.clear_objects
+                        end
+				
+                    end
+
+                end
+		
+                puts "Done with K-means algorithm."
+                return centroids	
+            end
+        end
+    </pre>
+    
+    <h3>Agglomerative Hierarchical Clustering</h3>
+    <p>Unlike K-means, Agglomerative Hierarchical Clustering seeks to bring objects together when possible, not seperate them. This algorithm starts with each data object its own seperate cluster and, for each time step, brings together the two closest clusters into one. This process is controlled by similarity metrics and continues until the entire dataset is one over-arching cluster. The data scientist can then navigate to any level of the algorithm and inspect the clusters generated at that point. Agglomerative Hierarchical Clustering is well suited  for datasets that are members of a taxonomy or are ordered in a hierarchical way. However, this algorithm is expensive in terms of processing time and space, and once a merge is done, it is never undone, which may cause problems with noisy, high-dimensional data.</p>
+    
+    <h3>DBSCAN</h3>
+    <p>DBSCAN is a density-based clustering algorithm that works by finding areas of high density that are seperated from each other by regions of low density. DBSCAN works by classifying points into one of three classes: core, border, or noise. A point that is within some distance 'eps' of at least 'min-points' (both arguments to the DBSCAN algorithm chosen by the user) other points will be classified as a core point. Points that are within 'eps' of a core point that have less that 'min-points' other points around it are border points, and points that satisfy neither of these conditions are noise points. Collections of core and border points make up the clusters and noise points are discarded. DBSCAN is able to detect non-glocbular clusters and can handle clusters of any size. However, DBSCAN is extremely sensitive to varying cluster densities, as this is the very measure that the algorithm uses to determine the existance of a cluster.</p>
+   
 	</body>
 </html>
