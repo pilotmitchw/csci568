@@ -1,0 +1,21 @@
+<html>
+    <head>
+        <title>Anomaly Detection</title>
+    </head>
+    <body>
+        <h1>Anomaly Detection</h1>
+        <p>The goal of Anomaly Detection is to find object that are different from most other objects. Anomalies are applicable to many problem domains, including fraud and intrusion detection, public health, and medicine. Anomalies have many different causes, among them natural variation (some people are very all, some are very short, and some are less extreme), mislabeling, and data measurement and collection errors. There are several ways of approaching the problem of anomaly detection: statistical, proximity-based, density-based, and clustering-based.</p>
+        
+        <h2>Statistical anomaly detection</h2>
+        <p>Statistical approaches are model-based approaches to anomaly detection. Objects are evaulated with respect to how well they fit the model and considering how likely objects are under that model. If the probability estimated is below a certain threshold, the data object is considered an outlier. The probaility is estimated using a Gaussian normal distribution. This method of detecting anomalies has a strong theoretical foundation and relies heavily on established disciplines of probability and statistics. Like many algorithms, however, statistical approaches suffer when provided with high-dimensional data.</p>
+        
+        <h2>Proximity-based anomaly detection</h2>
+        <p>Proximity-based anomaly detection works in a manner similar to the k-nearest neighbor classifier. The data scientist chooses a value K and the algorithm calculates the k-nearest neighbors of the suspected anomaly. If the nearest neighbors are some threshold away, then the point is classified as an outlier. This technique is simple, but is computationally expensive, at O(m^2) time, where m is the number of data objects. In addition, the algorithm is extremely sensitve to the choice of K and has problems with regions of widely varying density.</p>
+
+        <h2>Density-based anomaly detection</h2>
+        <p>From a density-based viewpoint, outliers are objects that are in regions of low density. A density-based technique for detecting anomalies calculates the density as the inverse of the average distance to the k nearest neighbors. To determine if a point is an outlier or not, the count of points within a certain distance d is used. If there are some threshold of points within d, then the point is most likely not an outlier. If the number of points is less than the threshold, the point is likely an outlier. More advanced algorithms also take into account the relative density of the area around the point in question. This method of outlier and anomaly detection is, like DBSCAN, is less hindered by non-globular shapes. On the other hand, like proximity-based outlier detection, this algorithm is extremely sensitive to the choices of K and the choice of d.</p>
+        
+        <h2>Clustering-based anomaly detection</h2>
+        <p>Cluster analysis finds groups of strongly related objects, while anomaly detectoin finds objects that are not strongly related to others. Clustering analysis can be used to find anomalies by finding points that do not strongly belong to any cluster. This can be done by calcuating the relative distance of a point from a closest centroid. Since outliers effect the clustering process itself, the dataset is usually clustered twice - once with the outliers and once without. This technique also suffers from some of the problems of clustering - not knowing how many clusters to use and effects of noise. This technique can be very efficient because some clustering techniques (K-means, in particular) run in linear or near-linear time and space. On the other hand, the results of a clustering-based anomaly detection approach is sensitive to the number of clusters used as well as the presence of outliers.</p> 
+    </body>
+</html>

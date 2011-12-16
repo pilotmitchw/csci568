@@ -1,0 +1,101 @@
+<!--
+	similarity_metrics.html
+-->
+
+<html>
+	<head>
+		<title>Similarity Metrics</title>
+	</head>
+	<body>
+		<h1>Similarity Metrics</h1>
+        <h2>Similarity</h2>
+        <p>The similarity between two objects is a numerical measure of the degree to which the two objects are alike. Similarites are higher for objects that are more alike, and are often mapped to the domain [0, 1], where a similarity of 0 describes two objects that are totally disjoint and a similarity of one describes two objects that are identical. In data mining, calculating the similarity of pairs of objects is a crucial part of several important data mining tasks, including clustering, classification, and anomaly detection. Different metrics have been developed for different problems in data mining. I will show three in this document: euclidean distance, simple matching coefficent (SMC), and cosine similarity.</p>
+        
+        <h3>Euclidean distance</h3>
+        <p>The first and, in many cases, simplest similarity metric is <strong>Euclidean distance</strong>. This metric measures the distance between two points, x and y, in multidimensional space - one dimension for each attribute of the data objects. The euclidean distance is the same equation that the reader used during elementary geometry to calculate the distance between two points in two- or three- dimensional space. Euclidean distance works well for datasets with continuous attributes, but the metric is sensitive to differences in magnitude between attributes. For example, a dataset containing peoples income and age will tend to be dominated by the income metric since most people make much more money in dollars than the number of years old they are. The equation for Euclidean distance is: sqrt(sum over all dimensions of each attribute of the x point minus the same attribute of the y point quanity squared)</p>
+        <p>The following is an implementation of Euclidean distance in Ruby:</p>
+        <pre>
+        class EuclideanDistance
+            def distance(x, y)
+                #Dimensionality
+                xDimensions = x.attributes.length
+                yDimensions = y.attributes.length
+		
+                #No point in comparing objects with different dimensionalities
+                if xDimensions != yDimensions 
+                    return nil
+                end
+		
+                total = 0
+		
+                xDimensions.times do |i|
+                    total += (x.attributes[i] - y.attributes[i])**2
+                end
+                return Math.sqrt(total)
+            end
+        end
+        </pre>
+        <h3>Simple Matching Coefficent (SMC)</h3>
+        <p>Simple Matching Coefficent is a similarity metric used for objects that contain only binary attributes. Simple Matching Coefficient seeks to describe similarity between these sorts of objects by counting the number of matching attribute pairs (1, 1) and (0, 0) for a pair of data points and dividing over the number of attributes.</p>
+        <p>The following is an implementation of SMC in Ruby:</p>
+        <pre>
+        class SimpleMatchingCoefficient
+            def distance(x, y)
+                #Dimensionality
+                xDimensions = x.attributes.length
+                yDimensions = y.attributes.length
+		
+                #No point in comparing objects with different dimensionalities
+                if xDimensions != yDimensions 
+                    return nil
+                end
+		
+                total = 0
+		
+                xDimensions.times do |i|
+                    if x.attributes[i] == y.attributes[i]
+                        total += 1
+                    end
+                end
+		
+                return total.to_f / xDimensions
+            end
+        end
+        </pre>
+        
+        <h3>Cosine similarity</h3>
+        <p>Cosine similarity is a metric that represents each data object as a vector in n-dimensional space, where n is the number of dimensions (attributes) in the data object. A common use of this representation is in document analysis, where each dimension is the number of times a certain word appears in a document. In this environment, each document has few non-zero values and is therefore sparse. Unlike SMC, cosine similarity does not use similarities of (0, 0) pairs as being meaningful, which means that the similarity metric has much less to process. The cosine similarity is calculated as the cosine between the two data object vectors x and y as the dot product of x and y over the magnitude of x times times the magnitude of y.</p>
+        <p> The following is an implementation of cosine similarity using Ruby:</p>
+        <pre>
+        class CosineSimilarity
+            def distance(x,y)
+                #Dimensionality
+                xDimensions = x.attributes.length
+                yDimensions = y.attributes.length
+		
+                #No point in comparing objects with different dimensionalities
+                if xDimensions != yDimensions 
+                    return nil
+                end
+		
+                total = 0
+                x_dot_y = 0
+                x_dot_x = 0
+                y_dot_y = 0
+		
+                xDimensions.times do |i|
+                    x_dot_y += x.attributes[i] * y.attributes[i]
+                    x_dot_x += x.attributes[i] * x.attributes[i]
+                    y_dot_y += y.attributes[i] * y.attributes[i]
+                end
+		
+                x_dot_x = Math.sqrt(x_dot_x)
+                y_dot_y = Math.sqrt(y_dot_y)
+		
+                return x_dot_y.to_f / (x_dot_x * y_dot_y)
+            end
+        end
+        </pre>
+        
+	</body>
+</html>
